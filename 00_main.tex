@@ -1,0 +1,90 @@
+\documentclass[conference]{IEEEtran}
+
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{Coordinated Voltage Control in Distribution
+Systems with Distributed Generations}
+
+\author{\IEEEauthorblockN{Alvi Newaz}
+\IEEEauthorblockA{Electrical and Computer Engineering\\
+Florida State University\\
+Tallahassee, Florida\\
+Email: an15m@fsu.edu}
+\and
+\IEEEauthorblockN{Juan Ospina} 
+\IEEEauthorblockA{Electrical and Computer Engineering\\
+Florida State University\\
+Tallahassee, Florida\\
+Email: jjospina@fsu.edu}
+\and
+\IEEEauthorblockN{M. Omar Faruque} 
+\IEEEauthorblockA{Electrical and Computer Engineering\\
+Florida State University\\
+Tallahassee, Florida\\
+Email: faruque@caps.fsu.edu}
+
+}
+
+\maketitle
+
+\graphicspath{{figs/}}
+\begin{abstract}
+This paper presents a centralized coordinated voltage control algorithm for distribution systems with distributed generations (DGs).  The control algorithm coordinates the use of available distributed generation (DG) with the traditional voltage regulation devices, taking into consideration the reactive power limits of the DG inverters to maintain the system voltage within predefined limits. With the help of the developed algorithm the  reactive power generation capacity of the DG inverters can be used to cope with the dynamic generation of the DGs without increasing the operations of the traditional voltage regulation devices available.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Distributed generations, voltage regulation devices, Coordinated Voltage Control
+\end{IEEEkeywords}
+
+\section{Introduction}\label{sec:intro}
+\input{01_intro.tex}
+
+\section{Design of Control Algorithm}\label{sec:design}
+\input{02_design.tex}
+
+\section{Test system}
+\input{03_test_system.tex}
+
+\section{Validation and Results}\label{sec:val}
+\input{04_val_res.tex}
+
+%\input{_CVC_STEPS.tex}
+
+\section{Conclusion}
+As the penetration of distributed generation resources starts to increase in distribution networks, the deployment of a coordinated voltage scheme is a requirement most utilities will have to fulfill. As observed, the algorithm proposed in this paper has the ability to coordinate the reactive power reference points for the distributed generation and traditional voltage regulation devices located along the feeder, taking into account their potential impacts on the entire system. By using this approach, a reduction in the use of traditional regulation devices can be achieved and the voltage profiles along the network can be controlled for the most part by just using the already existing DG inverters present on the network. In future work this concept of control will be expanded to unbalanced networks.
+
+\bibliographystyle{IEEEtran}
+\bibliography{mybib.bib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \begin{thebibliography}{1}
+
+% \bibitem{int1}
+% D.~Ranamuka, A.~P. Agalgaonkar and K.~M. Muttaqi, "Online Coordinated Voltage Control in Distribution Systems Subjected to Structural Changes and DG Availability,"\emph{ IEEE Transactions on Smart Grid}, vol. 7, no. 2, pp. 580-591, 2016. 
+% \bibitem{int2}
+% W.~Sheng, K.~-y. Liu and S. Cheng, "A Trust Region SQP Method for Coordinated Voltage Control in Smart Distribution Grid," \emph{IEEE Transactions on Smart Grid}, vol. 7, no. 1, pp. 381 - 391, 2016. 
+% \bibitem{Th_ali}
+% A.~Hariri, "Simulation Tools and Techniques for Analyzing the Impacts of Photovoltaic System Integration," Tallahassee Florida State University, 2017. 
+
+% \bibitem{int4}
+%  Paul Brucke Reactive Power Control in Utility-Scale PV, Solarprofessional.com, 2014. [Online]. Available: http://solarprofessional.com/articles/design-installation/reactive-power-control-in-utility-scale-pv/page/0/5. [Accessed: 24- Apr- 2017].
+
+% \bibitem{SG}
+% R. Meeker, M. Steurer and M. Faruque, "High penetration solar PV deployment sunshine state grid initiative (SUNGRIN)," Center for Advanced Power Systems, Tallahassee, 2015.
+
+% \end{thebibliography}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
