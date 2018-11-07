@@ -1,11 +1,11 @@
-The proposed algorithm makes use of two concepts to coordinate the voltage regulation between the nodes. They are:
+The proposed algorithm makes use of two concepts in order to coordinate the voltage regulation between the nodes. They are:
 \begin{itemize}
 \item Voltage sensitivity analysis
 \item Electrical distance calculation
 \end{itemize}
 
 \subsection{Voltage Sensitivity Analysis}
-The aim of the voltage sensitivity analysis is to determine the effect on the voltage due to reactive power injection at different nodes. Equation (\ref{eq.Pf_equation}) represents the system power-flow equation.  Here ${\Delta Q}, {\Delta P}, {\Delta |V|}$ and ${\Delta \delta}$ represent the change in real power, reactive power, voltage magnitude and voltage angle of nodes. $J$ represents the system jacobian matrix. The elements of $J$ are shown in (\ref{eq.J_equation})
+The aim of the voltage sensitivity analysis is to determine the effect on the voltage of a certain node due to reactive power injection at different nodes in the feeder. Equation (\ref{eq.Pf_equation}) represents the system power-flow equation.  Here ${\Delta Q}, {\Delta P}, {\Delta |V|}$ and ${\Delta \delta}$ represent the change in real power, reactive power, voltage magnitude and voltage angle of nodes. $J$ represents the system Jacobian matrix. The elements of $J$ are shown in (\ref{eq.J_equation}).
 \begin{equation}\label{eq.Pf_equation}
 \begin{bmatrix}
 {\Delta P}\\ {\Delta Q}
@@ -29,20 +29,32 @@ Using the components of the system Jacobian matrix the $J_{VQ}$ and $J_{VP}$ mat
     {J_{VP}}={J_{P|V|}}-{J_{P\delta}}{J_{Q\delta}}^{-1}{J_{Q|V|}}
 \end{equation}
 
-Using (\ref{eq.JVQ}) and (\ref{eq.JVP}) the total voltage sensitivity due to real and reactive power injected by a DG can be calculated using (\ref{eq.V_PQ}) \cite{Th_ali}. Here, $[\Delta|V|_{PQ}] , [P_{PV}] $ and $[Q_{PV}]$ represent the total voltage change, real power injected by DG and reactive power injected by DG respectively.
+Using (\ref{eq.JVQ}) and (\ref{eq.JVP}) the total voltage sensitivity due to real and reactive power injected by a DG can be calculated using (\ref{eq.V_PQ}) \cite{Th_ali}. Here, $[\Delta|V|_{PQ}], [P_{PV}] $ and $[Q_{PV}]$ represent the total voltage change, real power injected by DG and reactive power injected by DG, respectively.
 
 \begin{equation}\label{eq.V_PQ}
 [\Delta|V|_{PQ}] ={ J_{VP}}^{-1} [P_{PV}]+{ J_{VQ}}^{-1} [Q_{PV}]
 \end{equation}
 
-Using the relation $[P_{PV}] = \frac{[Q_{PV}]}{\cos^{-1}(p.f)}$ equation (\ref{eq.V_PQ}) can be written as
+Using the relation $[P_{PV}] = \frac{[Q_{PV}]}{\cos^{-1}(p.f)}$, equation (\ref{eq.V_PQ}) can be written as
 \begin{equation}\label{eq.V_Q}
  [\Delta|V|_{PQ}] ={ J_{VP}}^{-1}\frac{[Q_{PV}]}{\cos^{-1}(p.f)} +{ J_{VQ}}^{-1} [Q_{PV}]
 \end{equation}
- Equation (\ref{eq.V_Q}) gives us the relation between total voltage sensitivity and reactive power injection. Here, '$p.f$' represents power factor.
+From (\ref{eq.V_Q}) we can get
+\begin{equation}\label{eq.Q_V}
+ [\Delta|V|_{PQ}] =( \frac{J_{VP}^{-1}}{\cos^{-1}(p.f)} +{ J_{VQ}}^{-1}) [Q_{PV}]
+\end{equation}
+And finally from (\ref{eq.Q_V}) we can get
+\begin{equation}\label{eq.PV_Q}
+ [Q_{PV}] = J_{PVQ} [\Delta|V|_{PQ}] 
+\end{equation}
+where,
+\begin{equation}
+J_{PVQ} = ( \frac{J_{VP}^{-1}}{\cos^{-1}(p.f)} +{ J_{VQ}}^{-1})^{-1}
+\end{equation}
+ Equation (\ref{eq.PV_Q}) gives us the relation between total voltage sensitivity and reactive power injection. Here, '$p.f$' represents power factor.
 
 \subsection{Electrical Distance Calculation}
-Electrical distance is calculated in order to determine the relative impact on one node due to change in another node. The electrical distances are calculated by determining $M_{sVQ}$ according to equation (\ref{MsQV}) \cite{int1}.
+Electrical distance is calculated in order to determine the relative impact on one node due to a change in another node. The electrical distances are calculated by determining $M_{sVQ}$ according to equation (\ref{MsQV}) \cite{int1}.
 
 \begin{equation}\label{MsQV}
 \begin{bmatrix}
@@ -72,18 +84,19 @@ D_{sij} = -\log (\mu_{sij} * \mu_{sji})
 \end{equation}
 
 Where,
-$$
+\begin{equation}
 \mu_{sij} =  \frac{\delta V_{si}}{\delta Q_{sj}} / \frac{\delta V_{sj}}{\delta Q_{sj}}
-$$
-After determining the electrical distances the nodes are separated into different zones to determine which DG should provide reactive power support for voltage control.
+\end{equation}
+
 
 \subsection{Singular value decomposition and pseudo inverse}
 \input{_pinv.tex}
 
 \subsection{Control Algorithm}
-The core functionality of the algorithm proposed is based on the voltage sensitivity analysis and the concept of electrical distances calculation mentioned before. The main objective of the coordinated voltage control algorithm is the monitoring and control of the voltage at each node of the system, by using inverter-based reactive power and voltage control with traditional voltage regulation devices in order to keep the voltages between the range desired. The calculation of the reactive power needed to be injected is obtained by using the voltage sensitivity and electrical distances concepts. The main steps of the control algorithm is given below.
+The core functionality of the algorithm proposed is based on the voltage sensitivity analysis and the concept of electrical distances calculation mentioned before. The main objective of the coordinated voltage control algorithm is the monitoring and control of the voltage at each node of the system, by using inverter-based reactive power and voltage control with traditional voltage regulation devices in order to keep the voltages between the range desired. The calculation of the reactive power needed to be injected is obtained by using the voltage sensitivity analysis.Then electrical distance calculation is performed to choose the best node to supply reactive power. The main steps of the control algorithm are given below.
 
 \input{_CVC_STEPS.tex}
+
 
 % \begin{figure}[h]
 % \centering

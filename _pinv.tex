@@ -1,9 +1,9 @@
-In case of a distribution system the system jacobian matrix $J$ is usually a sparse matrix due to the radial nature of distribution systems. Calculating the inverse of $J$ becomes problematic due to this property. For this reason (\ref{eq.V_Q}) and (\ref{ED}) are implemented by determining the pseudo inverse of $J$ using singular value decomposition. The system jacobian matrix $J$ can factored into the expression shown in (\ref{eq.SVD}) \cite{PINV}.
+In case of a distribution system, the system Jacobian matrix $J$ is usually a sparse matrix due to the radial nature of distribution systems. Calculating the inverse of $J$ becomes problematic due to this property. For this reason, (\ref{eq.PV_Q}) and (\ref{ED}) are implemented by determining the pseudoinverse of $J$ using singular value decomposition. The system Jacobian matrix $J$ can factored into the expression shown in (\ref{eq.SVD}) \cite{PINV}.
 \begin{equation}\label{eq.SVD}
     J = USV^T
 \end{equation}
 
-Here, $U$ is an orthogonal matrix whose columns are the eigenvectors of $JJ^T$. $V$ is another orthogonal matrix whose columns are the  eigenvectors of $J^{T}J$. $S$ is a diagonal matrix and is the same size as $J$. Its diagonal elements are the square roots of the nonzero eigenvalues of both $JJ^T$ and $J^{T}J$. The elements of $S$ are the singular values of $J$ and they are represented as $\sigma_1, \sigma_2, ..., \sigma_r$ where $r$ is the rank of $J$. After factoring $J$ into these three components the pseudo inverse of $J$, $J^+$ can be calculated using (\ref{eq.PINV}) \cite{PINV}
+Here, $U$ is an orthogonal matrix whose columns are the eigenvectors of $JJ^T$. $V$ is another orthogonal matrix whose columns are the eigenvectors of $J^{T}J$. $S$ is a diagonal matrix and is the same size as $J$. Its diagonal elements are the square roots of the nonzero eigenvalues of both $JJ^T$ and $J^{T}J$. The elements of $S$ are the singular values of $J$ and they are represented as $\sigma_1, \sigma_2, ..., \sigma_r$ where $r$ is the rank of $J$. After factoring $J$ into these three components the pseudoinverse of $J$, $J^+$ can be calculated using (\ref{eq.PINV}) \cite{PINV}
 \begin{equation}\label{eq.PINV}
     J^+ = US^{+}V^T
 \end{equation}

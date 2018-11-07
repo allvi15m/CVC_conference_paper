@@ -2,6 +2,7 @@
 
 \IEEEoverridecommandlockouts
 % The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+%\usepackage[section]{placeins}
 \usepackage{cite}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{algorithmic}
@@ -15,35 +16,44 @@
 \title{Coordinated Voltage Control in Distribution
 Systems with Distributed Generations}
 
-\author{\IEEEauthorblockN{Alvi Newaz}
-\IEEEauthorblockA{Electrical and Computer Engineering\\
-Florida State University\\
-Tallahassee, Florida\\
-Email: an15m@fsu.edu}
-\and
-\IEEEauthorblockN{Juan Ospina} 
-\IEEEauthorblockA{Electrical and Computer Engineering\\
-Florida State University\\
-Tallahassee, Florida\\
-Email: jjospina@fsu.edu}
-\and
-\IEEEauthorblockN{M. Omar Faruque} 
-\IEEEauthorblockA{Electrical and Computer Engineering\\
-Florida State University\\
-Tallahassee, Florida\\
-Email: faruque@caps.fsu.edu}
+\author{\IEEEauthorblockN{Alvi Newaz\IEEEauthorrefmark{1},
+Juan Ospina\IEEEauthorrefmark{0}, M. Omar Faruque\IEEEauthorrefmark{0}}
+\IEEEauthorblockA{The Department of Electrical and Computer Engineering at the FAMU-FSU College of Engineering \\ Center for Advanced Power Systems, Florida State University \\
+2000 Levy Avenue, Tallahassee, FL., USA.
+%Wherever\\
+Email: \IEEEauthorrefmark{1}an15m@fsu.edu}}
 
-}
+
+
+% \author{\IEEEauthorblockN{Alvi Newaz, Juan Ospina, M. Omar Faruque}
+% \IEEEauthorblockA{Electrical and Computer Engineering\\
+% Florida State University\\
+% Tallahassee, Florida\\
+% Email: an15m@fsu.edu^1, jjospina@fsu.edu^2, faruque@caps.fsu.edu^3}
+% \and
+% \IEEEauthorblockN{Juan Ospina} 
+% \IEEEauthorblockA{Electrical and Computer Engineering\\
+% Florida State University\\
+% Tallahassee, Florida\\
+% Email: jjospina@fsu.edu}
+% \and
+% \IEEEauthorblockN{M. Omar Faruque} 
+% \IEEEauthorblockA{Electrical and Computer Engineering\\
+% Florida State University\\
+% Tallahassee, Florida\\
+% Email: faruque@caps.fsu.edu}
+
+
 
 \maketitle
 
 \graphicspath{{figs/}}
 \begin{abstract}
-This paper presents a centralized coordinated voltage control algorithm for distribution systems with distributed generations (DGs).  The control algorithm coordinates the use of available distributed generation (DG) with the traditional voltage regulation devices, taking into consideration the reactive power limits of the DG inverters to maintain the system voltage within predefined limits. With the help of the developed algorithm the  reactive power generation capacity of the DG inverters can be used to cope with the dynamic generation of the DGs without increasing the operations of the traditional voltage regulation devices available.
+This paper presents a centralized coordinated voltage control algorithm for distribution systems with distributed generations (DGs).  The control algorithm coordinates the use of available distributed generation (DG) with the traditional voltage regulation devices, taking into consideration the reactive power limits of the DG inverters to maintain the system voltage within predefined limits. With the help of the developed algorithm the reactive power generation capacity of the DG inverters can be used to cope with the dynamic generation of the DGs without increasing the operations of the traditional voltage regulation devices available.
 \end{abstract}
 
 \begin{IEEEkeywords}
-Distributed generations, voltage regulation devices, Coordinated Voltage Control
+Coordinated voltage control, distributed generations, voltage regulation devices.
 \end{IEEEkeywords}
 
 \section{Introduction}\label{sec:intro}
@@ -61,7 +71,8 @@ Distributed generations, voltage regulation devices, Coordinated Voltage Control
 %\input{_CVC_STEPS.tex}
 
 \section{Conclusion}
-As the penetration of distributed generation resources starts to increase in distribution networks, the deployment of a coordinated voltage scheme is a requirement most utilities will have to fulfill. As observed, the algorithm proposed in this paper has the ability to coordinate the reactive power reference points for the distributed generation and traditional voltage regulation devices located along the feeder, taking into account their potential impacts on the entire system. By using this approach, a reduction in the use of traditional regulation devices can be achieved and the voltage profiles along the network can be controlled for the most part by just using the already existing DG inverters present on the network. In future work this concept of control will be expanded to unbalanced networks.
+As the penetration of distributed generation resources starts to increase in distribution networks, the deployment of a coordinated voltage scheme is a requirement most utilities will have to fulfill. As observed, the algorithm proposed in this paper has the ability to coordinate the reactive power reference points for the distributed generation and traditional voltage regulation devices located along the feeder, taking into account their potential impacts on the entire system. By using this approach, a reduction in the use of traditional regulation devices can be achieved and the voltage profiles along the network can be controlled for the most part by just using the already existing DG inverters present on the network. In future work, this concept of control will be expanded to unbalanced networks.
+
 
 \bibliographystyle{IEEEtran}
 \bibliography{mybib.bib}
